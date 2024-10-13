@@ -10,7 +10,6 @@ export class LaunchPage{
 
     constructor(page:Page){
         this.page = page;       
-        this.sailTo = page.locator("#cdc-destinations");
 
     }
     async goTo()
@@ -19,16 +18,20 @@ export class LaunchPage{
         await this.page.click("text=AGREE");                        
     }    
     async selectSailTo(destiny:String)
-    {
-        destiny = "The Bahamas";
-        await this.sailTo.click;
-        await this.page.click("button[aria-label='"+destiny+" ']");
-        await this.page.pause();
-        await expect(this.page.locator("a[id='cdc-destinations'] span[class='cdc-filters-tab-link-title ng-binding']")).toContainText(""+destiny);
+    {        
+        await this.page.click("#cdc-destinations");
+        await this.page.click("button[aria-label='"+destiny+" ']");        
     }
     async selectDuration(durationRange:string)
+    {        
+        await this.page.click("#cdc-durations");
+        await this.page.click("button[aria-label='"+durationRange+" ']");        
+    }
+    
+    async pressSearchCruise()
     {
-
+        await this.page.click("a[class='cdc-filters-search-cta']");
+        await expect(this.page.locator("//h2[@data-testid='cruisetotalResults']")).toContainText("Cruise Results");     
     }
 }
 

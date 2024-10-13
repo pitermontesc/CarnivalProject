@@ -1,27 +1,42 @@
 import { test, expect } from '@playwright/test';
 const {POManager} = require('../Pages/POManager')
-/*
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+test.beforeEach(async({}) =>{
+  test.setTimeout(120000);
+}
+);
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
-*/
-test('@Web US1 The result grid is displayed after press search button with Sail to and Duration fields filled', async({page}) =>{
+test('@SmokeTest @US1 The result grid is displayed after press search button with Sail to and Duration fields filled', async({page}) =>{
   const poManager = new POManager(page);
   const launchPage = poManager.getLaunchPage();
   await launchPage.goTo();  
-  await launchPage.selectSailTo("");
+  await launchPage.selectSailTo("The Bahamas");
+  await launchPage.selectDuration("6 - 9 Days");
+  await launchPage.pressSearchCruise();  
+}
+)
+
+test('@SmokeTest @US1 The result grid is filtered when vacation buget has been modified', async({page}) => {
+  const poManager = new POManager(page);
+  const launchPage = poManager.getLaunchPage();
+  await launchPage.goTo();  
+  await launchPage.selectSailTo("The Bahamas");
+  await launchPage.selectDuration("6 - 9 Days");
+  await launchPage.pressSearchCruise();  
+  const cruiseSearchPage = poManager.getCruiseSearchPage();
+  await cruiseSearchPage.modifyVacationBudget("700","900");  
+}
+)
+
+test ('@SmokeTest @US1 Validate the Sort by will be sorted by low to high by default after look for the search result',async({page}) => {
+
+  const poManager = new POManager(page);
+  const launchPage = poManager.getLaunchPage();
+  await launchPage.goTo();  
+  await launchPage.selectSailTo("The Bahamas");
+  await launchPage.selectDuration("6 - 9 Days");
+  await launchPage.pressSearchCruise();  
+  const cruiseSearchPage = poManager.getCruiseSearchPage();
+  await cruiseSearchPage.verifyShortByDefaultValue();
 }
 )
