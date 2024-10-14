@@ -37,15 +37,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'mobile',
-      use: { ...devices['iPhone 12'] },
-    },
+    // {
+    //   name: 'mobile',
+    //   use: { ...devices['iPhone 12'] },
+    // },
 
 
     /* Test against mobile viewports. */

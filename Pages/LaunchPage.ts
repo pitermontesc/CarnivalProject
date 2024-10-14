@@ -20,7 +20,8 @@ export class LaunchPage{
     async selectSailTo(destiny:String)
     {        
         await this.page.click("#cdc-destinations");
-        await this.page.click("button[aria-label='"+destiny+" ']");        
+        await this.page.click("button[aria-label='"+destiny+" ']");     
+        await this.page.waitForTimeout(1000);   
     }
     async selectDuration(durationRange:string)
     {        
