@@ -6,54 +6,54 @@ test.beforeEach(async({}) =>{
 }
 );
 
-// test('@SmokeTest @US1 The result grid is displayed after press search button with Sail to and Duration fields filled', async({page}) =>{
-//   const poManager = new POManager(page);
-//   const launchPage = poManager.getLaunchPage();
-//   await launchPage.goTo();  
-//   await launchPage.selectSailTo("The Bahamas");
-//   await launchPage.selectDuration("6 - 9 Days");
-//   await launchPage.pressSearchCruise();  
-// }
-// )
+test('@SmokeTest @US1 The result grid is displayed after press search button with Sail to and Duration fields filled', async({page}) =>{
+  const poManager = new POManager(page);
+  const launchPage = poManager.getLaunchPage();
+  await launchPage.goTo();  
+  await launchPage.selectSailTo("The Bahamas");
+  await launchPage.selectDuration("6 - 9 Days");
+  await launchPage.pressSearchCruise();  
+}
+)
 
-// test('@SmokeTest @US1 The result grid is filtered when vacation buget has been modified', async({page}) => {
-//   const poManager = new POManager(page);
-//   const launchPage = poManager.getLaunchPage();
-//   await launchPage.goTo();  
-//   await launchPage.selectSailTo("The Bahamas");
-//   await launchPage.selectDuration("6 - 9 Days");
-//   await launchPage.pressSearchCruise();  
-//   const cruiseSearchPage = poManager.getCruiseSearchPage();
-//   await cruiseSearchPage.modifyVacationBudget("700","900");  
-// }
-// )
+test('@SmokeTest @US1 The result grid is filtered when vacation buget has been modified', async({page}) => {
+  const poManager = new POManager(page);
+  const launchPage = poManager.getLaunchPage();
+  await launchPage.goTo();  
+  await launchPage.selectSailTo("The Bahamas");
+  await launchPage.selectDuration("6 - 9 Days");
+  await launchPage.pressSearchCruise();  
+  const cruiseSearchPage = poManager.getCruiseSearchPage();
+  await cruiseSearchPage.modifyVacationBudget("700","900");  
+}
+)
 
-// test ('@SmokeTest @US1 Validate the Sort by will be sorted by low to high by default after look for the search result',async({page}) => {
+test ('@SmokeTest @US1 Validate the Sort by will be sorted by low to high by default after look for the search result',async({page}) => {
 
-//   const poManager = new POManager(page);
-//   const launchPage = poManager.getLaunchPage();
-//   await launchPage.goTo();  
-//   await launchPage.selectSailTo("The Bahamas");
-//   await launchPage.selectDuration("6 - 9 Days");
-//   await launchPage.pressSearchCruise();  
-//   const cruiseSearchPage = poManager.getCruiseSearchPage();
-//   await cruiseSearchPage.verifyShortByDefaultValue();
-// }
-// )
+  const poManager = new POManager(page);
+  const launchPage = poManager.getLaunchPage();
+  await launchPage.goTo();  
+  await launchPage.selectSailTo("The Bahamas");
+  await launchPage.selectDuration("6 - 9 Days");
+  await launchPage.pressSearchCruise();  
+  const cruiseSearchPage = poManager.getCruiseSearchPage();
+  await cruiseSearchPage.verifyShortByDefaultValue();
+}
+)
 
-// test ('@SmokeTest @US2 Detail information has been displayed after click on View Itinerary link',async({page}) => {
-//     const poManager = new POManager(page);
-//     const launchPage = poManager.getLaunchPage();
-//     await launchPage.goTo();  
-//     await launchPage.selectSailTo("The Bahamas");
-//     await launchPage.selectDuration("6 - 9 Days");
-//     await launchPage.pressSearchCruise();  
-//     const cruiseSearchPage = poManager.getCruiseSearchPage();
-//     await cruiseSearchPage.pressCruiseToViewItinerary();
-//     const itineraryPage = poManager.getItineraryPage();
-//     itineraryPage.verifyInformationPriceDesc()
-// }
-// )
+test ('@SmokeTest @US2 Detail information has been displayed after click on View Itinerary link',async({page}) => {
+    const poManager = new POManager(page);
+    const launchPage = poManager.getLaunchPage();
+    await launchPage.goTo();  
+    await launchPage.selectSailTo("The Bahamas");
+    await launchPage.selectDuration("6 - 9 Days");
+    await launchPage.pressSearchCruise();  
+    const cruiseSearchPage = poManager.getCruiseSearchPage();
+    await cruiseSearchPage.pressCruiseToViewItinerary();
+    const itineraryPage = poManager.getItineraryPage();
+    itineraryPage.verifyInformationPriceDesc()
+}
+)
 
 test ('@SmokeTest @US2 Each Day display information About it after Cruiser Itinerary page will be loaded', async({page}) =>{
     const poManager = new POManager(page);
