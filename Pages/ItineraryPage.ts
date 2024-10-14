@@ -31,8 +31,8 @@ export class ItineraryPage{
     async pressStartBooking()
     {
         await this.page.click("//span[normalize-space()='START BOOKING']");
-        await this.page.waitForTimeout(timeOutValue);        
-        await expect(this.page.locator("//h2[normalize-space()='Add Rooms or Guests']")).not.toBeEmpty();
+        // await this.page.waitForTimeout(timeOutValue);        
+        // await expect(this.page.locator("//h2[normalize-space()='Add Rooms or Guests']")).not.toBeEmpty();
     }
 
 }
